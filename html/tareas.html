@@ -162,3 +162,68 @@
             </div>
         </main>
     </div>
+
+        <!-- Modal para agregar/editar tarea -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="task-modal-title">Nueva Tarea</h2>
+                <button class="close-modal" id="close-task-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="task-title">Título de la tarea *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-heading"></i>
+                            <input type="text" id="task-title" required placeholder="¿Qué necesitas hacer?">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="task-description">Descripción</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class="fas fa-align-left"></i>
+                            <textarea id="task-description" rows="3" placeholder="Detalles adicionales..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row two-cols">
+                    <div class="input-group">
+                        <label for="task-priority">Prioridad *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-flag"></i>
+                            <select id="task-priority" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="high">Alta</option>
+                                <option value="medium">Media</option>
+                                <option value="low">Baja</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="task-date">Fecha límite</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="task-date">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancel-task">Cancelar</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i>
+                        Guardar Tarea
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>

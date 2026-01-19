@@ -60,3 +60,98 @@
             </div>
         </aside>
 
+        <!-- Overlay para móvil -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">
+                        <h1><i class="fas fa-star" style="color: #ffc107;"></i> Mis Favoritos</h1>
+                        <p>Tus contactos más importantes</p>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-favorites" placeholder="Buscar en favoritos...">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <div class="content-area">
+                <div class="favorites-banner">
+                    <div class="banner-content">
+                        <div class="banner-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="banner-text">
+                            <h2>Contactos Favoritos</h2>
+                            <p>Acceso rápido a las personas más importantes para ti</p>
+                        </div>
+                    </div>
+                    <div class="banner-decoration">
+                        <div class="deco-circle"></div>
+                        <div class="deco-circle"></div>
+                    </div>
+                </div>
+
+                <div class="contacts-section">
+                    <div class="section-header">
+                        <h2><span id="favorites-count">0</span> Contactos Favoritos</h2>
+                        <div class="view-options">
+                            <button class="view-btn active" id="grid-view">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-btn" id="list-view">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="contacts-grid" id="favorites-container">
+                        <!-- Los favoritos se cargarán aquí con JavaScript -->
+                    </div>
+
+                    <div class="empty-state hidden" id="empty-favorites">
+                        <div class="empty-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>No tienes favoritos aún</h3>
+                        <p>Agrega contactos a favoritos para verlos aquí</p>
+                        <a href="contactos.html" class="btn-primary">
+                            <i class="fas fa-users"></i>
+                            Ver Contactos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de detalles del contacto -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-content detail-modal-content">
+            <div class="modal-header">
+                <h2>Detalles del Contacto</h2>
+                <button class="close-modal" id="close-detail-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="contact-detail-body" id="contact-detail-body">
+                <!-- Los detalles se cargarán aquí con JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/favoritos.js"></script>
+</body>
+</html>

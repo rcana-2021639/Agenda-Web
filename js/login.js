@@ -158,3 +158,129 @@ function procesarLogin() {
         alert('Correo o contraseña incorrectos');
     }
 }
+
+// Procesar registro
+function procesarRegistro() {
+    var nombre = document.getElementById('register-name').value;
+    var email = document.getElementById('register-email').value;
+    var telefono = document.getElementById('register-phone').value;
+    var direccion = document.getElementById('register-address').value || '';
+    var fechaNacimiento = document.getElementById('register-birthdate').value || '';
+    var ocupacion = document.getElementById('register-occupation').value || '';
+    var password = document.getElementById('register-password').value;
+    var confirmarPassword = document.getElementById('register-confirm').value;
+    
+    // Validar campos obligatorios
+    if (nombre === '' || email === '' || telefono === '' || password === '' || confirmarPassword === '') {
+        alert('Por favor, completa los campos obligatorios');
+        return;
+    }
+    
+    // Validar formato de email
+    if (!validarEmail(email)) {
+        alert('Por favor, ingresa un correo electrónico válido');
+        return;
+    }
+    
+    // Validar que las contraseñas coincidan
+    if (password !== confirmarPassword) {
+        alert('Las contraseñas no coinciden');
+        return;
+    }
+    
+    // Validar longitud de contraseña
+    if (password.length < 6) {
+        alert('La contraseña debe tener al menos 6 caracteres');
+        return;
+    }
+    
+    // Obtener usuarios existentes
+    var usuarios = obtenerUsuarios();
+    
+    // Verificar si el email ya está registrado
+    for (var i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].email === email) {
+            alert('Este correo electrónico ya está registrado');
+            return;
+        }
+    }
+    
+    // Crear nuevo usuario con todos los datos
+    var nuevoUsuario = {
+        id: Date.now(),
+        nombre: nombre,
+        email: email,
+        telefono: telefono,
+        direccion: direccion,
+        fechaNacimiento: fechaNacimiento,
+        ocupacion: ocupacion,
+        password: password
+    };
+    
+    // Agregar a la lista de usuarios
+    usuarios.push(nuevoUsuario);
+    
+    // Guardar usuarios
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    
+    // Separar nombre y apellido
+    var nombreParts = nombre.trim().split(' ');
+    var primerNombre = nombreParts[0] || '';
+    var apellido = nombreParts.slice(1).join(' ') || '';
+    
+    // Crear y guardar perfil inicial con todos los datos
+    var perfilInicial = {
+        nombre: primerNombre,
+        apellido: apellido,
+        email: email,
+        telefono: telefono,
+        direccion: direccion,
+        fechaNacimiento: fechaNacimiento,
+        ocupacion: ocupacion,
+        biografia: '',
+        avatar: null
+    };
+    localStorage.setItem('perfil', JSON.stringify(perfilInicial));
+    
+    // Mostrar mensaje de éxito
+    alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
+    
+    // Cambiar a la pestaña de login
+    document.getElementById('tab-login').click();
+    
+    // Limpiar formulario de registro
+    document.getElementById('registerFormElement').reset();
+    
+    // Prellenar el email en el login
+    document.getElementById('login-email').value = email;
+}
+
+// Obtener lista de usuarios
+function obtenerUsuarios() {
+    var usuariosGuardados = localStorage.getItem('usuarios');
+    
+    if (usuariosGuardados) {
+        return JSON.parse(usuariosGuardados);
+    }
+    
+    // Si no hay usuarios, crear el usuario demo
+    var usuariosIniciales = [
+        {
+            id: 1,
+            nombre: 'Admin Demo',
+            email: 'admin@agendapro.com',
+            telefono: '+502 1234-5678',
+            password: '123456'
+        }
+    ];
+    
+    localStorage.setItem('usuarios', JSON.stringify(usuariosIniciales));
+    
+    return usuariosIniciales;
+}
+
+// Validar formato de email
+function validarEmail(email) {
+    var patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return patron.test(email);
+}

@@ -123,3 +123,160 @@
                         </div>
                     </div>
 
+                    <!-- Formulario de edición -->
+                    <div class="profile-edit-section">
+                        <div class="section-card">
+                            <div class="section-header">
+                                <h3><i class="fas fa-user-edit"></i> Información Personal</h3>
+                            </div>
+                            <form id="profile-form">
+                                <div class="form-row two-cols">
+                                    <div class="input-group">
+                                        <label for="profile-firstname">Nombre</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="profile-firstname" placeholder="Tu nombre">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-lastname">Apellido</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="profile-lastname" placeholder="Tu apellido">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row two-cols">
+                                    <div class="input-group">
+                                        <label for="profile-email-input">Correo electrónico</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-envelope"></i>
+                                            <input type="email" id="profile-email-input" placeholder="tu@correo.com">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-phone">Teléfono</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-phone"></i>
+                                            <input type="tel" id="profile-phone" placeholder="+502 1234-5678">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label for="profile-address">Dirección</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <input type="text" id="profile-address" placeholder="Tu dirección">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row two-cols">
+                                    <div class="input-group">
+                                        <label for="profile-birthdate">Fecha de nacimiento</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-calendar"></i>
+                                            <input type="date" id="profile-birthdate">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-occupation">Ocupación</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-briefcase"></i>
+                                            <input type="text" id="profile-occupation" placeholder="Tu ocupación">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label for="profile-bio">Biografía</label>
+                                        <div class="input-wrapper textarea-wrapper">
+                                            <i class="fas fa-quote-left"></i>
+                                            <textarea id="profile-bio" rows="3" placeholder="Cuéntanos sobre ti..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn-secondary" id="reset-profile">
+                                        <i class="fas fa-undo"></i>
+                                        Restaurar
+                                    </button>
+                                    <button type="submit" class="btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Guardar Cambios
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="section-card">
+                            <div class="section-header">
+                                <h3><i class="fas fa-cog"></i> Configuración de Cuenta</h3>
+                            </div>
+                            <div class="settings-list">
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <i class="fas fa-bell"></i>
+                                        <div>
+                                            <h4>Notificaciones</h4>
+                                            <p>Recibir alertas y recordatorios</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="setting-notifications" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <i class="fas fa-moon"></i>
+                                        <div>
+                                            <h4>Modo Oscuro</h4>
+                                            <p>Cambiar apariencia de la aplicación</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="setting-darkmode">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <i class="fas fa-lock"></i>
+                                        <div>
+                                            <h4>Privacidad</h4>
+                                            <p>Perfil visible solo para contactos</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="setting-privacy" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notificación de éxito -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toast-message">Cambios guardados correctamente</span>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/perfil.js"></script>
+</body>
+</html>

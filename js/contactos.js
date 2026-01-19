@@ -301,3 +301,101 @@ function guardarContacto() {
     document.getElementById('contact-form').reset();
     contactoEditando = null;
 }
+
+// Editar contacto
+function editarContacto(id) {
+    var contactos = obtenerContactos();
+    var contacto = null;
+    
+    for (var i = 0; i < contactos.length; i++) {
+        if (contactos[i].id === id) {
+            contacto = contactos[i];
+            break;
+        }
+    }
+    
+    if (!contacto) return;
+    
+    contactoEditando = id;
+    
+    // Llenar formulario
+    document.getElementById('contact-name').value = contacto.nombre;
+    document.getElementById('contact-phone').value = contacto.telefono;
+    document.getElementById('contact-email').value = contacto.email || '';
+    document.getElementById('contact-company').value = contacto.empresa || '';
+    document.getElementById('contact-address').value = contacto.direccion || '';
+    document.getElementById('contact-notes').value = contacto.notas || '';
+    document.getElementById('contact-favorite').checked = contacto.favorito;
+    
+    // Cambiar título
+    document.getElementById('modal-title').textContent = 'Editar Contacto';
+    
+    // Abrir modal
+    document.getElementById('contact-modal').classList.add('active');
+}
+
+// Eliminar contacto
+function eliminarContacto(id) {
+    if (!confirm('¿Estás seguro de eliminar este contacto?')) {
+        return;
+    }
+    
+    var contactos = obtenerContactos();
+    var nuevosContactos = [];
+    
+    for (var i = 0; i < contactos.length; i++) {
+        if (contactos[i].id !== id) {
+            nuevosContactos.push(contactos[i]);
+        }
+    }
+    
+    guardarContactos(nuevosContactos);
+    cargarContactos();
+    
+    alert('Contacto eliminado');
+}
+
+// Toggle favorito
+function toggleFavorito(id) {
+    var contactos = obtenerContactos();
+    
+    for (var i = 0; i < contactos.length; i++) {
+        if (contactos[i].id === id) {
+            contactos[i].favorito = !contactos[i].favorito;
+            break;
+        }
+    }
+    
+    guardarContactos(contactos);
+    cargarContactos();
+}
+
+// ===== MODAL DE DETALLES =====
+function inicializarModalDetalles() {
+    var modal = document.getElementById('detail-modal');
+    var btnCerrar = document.getElementById('close-detail-modal');
+    
+    if (btnCerrar) {
+        btnCerrar.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            cerrarModalDetalles();
+        });
+    }
+    
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                cerrarModalDetalles();
+            }
+        });
+    }
+}
+
+function cerrarModalDetalles() {
+    var modal = document.getElementById('detail-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.removeAttribute('style');
+    }
+}

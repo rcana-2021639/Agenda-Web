@@ -5,7 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body class="login-page">
+    <div class="login-container">
+        <!-- Lado izquierdo - Información -->
+        <div class="login-left">
+            <div class="login-left-content">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-address-book"></i>
+                    </div>
+                    <h1 class="logo-text">AgendaPro</h1>
+                    <p class="logo-subtitle">Tu Agenda de Contactos Profesional</p>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Gestión de Contactos</h3>
+                            <p>Organiza todos tus contactos de manera eficiente</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Contactos Favoritos</h3>
+                            <p>Acceso rápido a tus contactos más importantes</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Lista de Tareas</h3>
+                            <p>Mantén organizadas todas tus actividades</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Datos Seguros</h3>
+                            <p>Tu información siempre protegida</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-badge">
+                    <div class="trust-line"></div>
+                    <p>Diseñado para profesionales</p>
+                </div>
+            </div>
+
+            <div class="decorative-circles">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+            </div>
+        </div>
+
+        <!-- Lado derecho - Formulario -->
+        <div class="login-right">
+            <div class="form-container">
+                <!-- Pestañas -->
+                <div class="form-tabs">
+                    <button class="tab-btn active" id="tab-login">Iniciar Sesión</button>
+                    <button class="tab-btn" id="tab-register">Registrarse</button>
+                </div>
+
+                <!-- Formulario de Login -->
+                <div class="form-content" id="login-form">
+                    <div class="form-header">
+                        <h2>Bienvenido de nuevo</h2>
+                        <p>Ingresa tus credenciales para continuar</p>
+                    </div>
+
+                    <form id="loginFormElement">
+                        <div class="input-group">
+                            <label for="login-email">Correo electrónico</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="login-email" placeholder="tu@correo.com" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="login-password">Contraseña</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="login-password" placeholder="••••••••" required>
+                                <button type="button" class="toggle-password" id="toggle-login-pass">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="remember-me">
+                                <span class="checkmark"></span>
+                                Recordar sesión
+                            </label>
+                            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            Iniciar Sesión
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                    <div class="demo-info">
+                        <p><strong>Usuario demo:</strong> admin@agendapro.com</p>
+                        <p><strong>Contraseña:</strong> 123456</p>
+                    </div>
+                </div>
+
+                <!-- Formulario de Registro -->
+                <div class="form-content hidden" id="register-form">
+                    <div class="form-header">
+                        <h2>Crear cuenta</h2>
+                        <p>Completa tus datos para registrarte</p>
+                    </div>
+
+                    <form id="registerFormElement">
+                        <div class="input-group">
+                            <label for="register-name">Nombre completo</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="register-name" placeholder="Tu nombre" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="register-email">Correo electrónico</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="register-email" placeholder="tu@correo.com" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="register-phone">Teléfono</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="register-phone" placeholder="+502 1234-5678" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="register-address">Ubicación</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" id="register-address" placeholder="Tu ubicación">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="register-birthdate">Fecha de nacimiento</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-calendar"></i>
+                                <input type="date" id="register-birthdate">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="register-occupation">Ocupación</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-briefcase"></i>
+                                <input type="text" id="register-occupation" placeholder="Tu ocupación">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="register-password">Contraseña</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="register-password" placeholder="••••••••" required>
+                                <button type="button" class="toggle-password" id="toggle-register-pass">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="register-confirm">Confirmar contraseña</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="register-confirm" placeholder="••••••••" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            Crear Cuenta
+                            <i class="fas fa-user-plus"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <footer class="form-footer">
+                    <p>&copy; 2026 AgendaPro - Todos los derechos reservados</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/login.js"></script>
 </body>
+
 </html>

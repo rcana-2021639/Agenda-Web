@@ -60,3 +60,107 @@
                 </a>
             </div>
         </aside>
+
+                <!-- Overlay para móvil -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">
+                        <h1><i class="fas fa-tasks"></i> Lista de Tareas</h1>
+                        <p>Organiza tus pendientes</p>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="add-btn" id="add-task-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>Nueva Tarea</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <div class="content-area">
+                <div class="tasks-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-list-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="total-tasks">0</span>
+                            <span class="stat-label">Total Tareas</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="pending-tasks">0</span>
+                            <span class="stat-label">Pendientes</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon completed">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="completed-tasks">0</span>
+                            <span class="stat-label">Completadas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tasks-filter">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-list"></i> Todas
+                    </button>
+                    <button class="filter-btn" data-filter="pending">
+                        <i class="fas fa-clock"></i> Pendientes
+                    </button>
+                    <button class="filter-btn" data-filter="completed">
+                        <i class="fas fa-check"></i> Completadas
+                    </button>
+                </div>
+
+                <div class="tasks-section">
+                    <div class="priority-legend">
+                        <span class="legend-item">
+                            <span class="priority-dot high"></span> Alta
+                        </span>
+                        <span class="legend-item">
+                            <span class="priority-dot medium"></span> Media
+                        </span>
+                        <span class="legend-item">
+                            <span class="priority-dot low"></span> Baja
+                        </span>
+                    </div>
+
+                    <div class="tasks-list" id="tasks-container">
+                        <!-- Las tareas se cargarán aquí con JavaScript -->
+                    </div>
+
+                    <div class="empty-state hidden" id="empty-tasks">
+                        <div class="empty-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3>No hay tareas</h3>
+                        <p>Agrega una nueva tarea para comenzar</p>
+                        <button class="btn-primary" id="add-task-empty">
+                            <i class="fas fa-plus"></i>
+                            Nueva Tarea
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+

@@ -61,3 +61,65 @@
             </div>
         </aside>
 
+        <!-- Overlay para móvil -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">
+                        <h1><i class="fas fa-user-circle"></i> Mi Perfil</h1>
+                        <p>Gestiona tu información personal</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <div class="content-area">
+                <div class="profile-container">
+                    <!-- Tarjeta de perfil -->
+                    <div class="profile-card">
+                        <div class="profile-cover">
+                            <div class="cover-pattern"></div>
+                        </div>
+                        <div class="profile-avatar-section">
+                            <div class="avatar-container">
+                                <img src="../images/default-avatar.png" alt="Avatar del usuario" id="profile-avatar" class="profile-avatar">
+                                <label for="avatar-input" class="avatar-edit-btn">
+                                    <i class="fas fa-camera"></i>
+                                </label>
+                                <input type="file" id="avatar-input" accept="image/*" hidden>
+                            </div>
+                            <h2 class="profile-name" id="display-name">Usuario</h2>
+                            <p class="profile-email" id="display-email">usuario@correo.com</p>
+                            <div class="profile-badges">
+                                <span class="badge verified">
+                                    <i class="fas fa-check-circle"></i> Verificado
+                                </span>
+                                <span class="badge premium">
+                                    <i class="fas fa-crown"></i> Premium
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <span class="stat-value" id="profile-contacts">0</span>
+                                <span class="stat-name">Contactos</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="stat-value" id="profile-favorites">0</span>
+                                <span class="stat-name">Favoritos</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="stat-value" id="profile-tasks">0</span>
+                                <span class="stat-name">Tareas</span>
+                            </div>
+                        </div>
+                    </div>
+

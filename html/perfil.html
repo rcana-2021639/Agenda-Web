@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaRH - Mi Perfil</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/perfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-address-book"></i>
+                    <span>AgendaRH</span>
+                </div>
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="contactos.html">
+                            <i class="fas fa-users"></i>
+                            <span>Contactos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="favoritos.html">
+                            <i class="fas fa-star"></i>
+                            <span>Favoritos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tareas.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>Lista de Tareas</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="perfil.html">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Mi Perfil</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Overlay para móvil -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">
+                        <h1><i class="fas fa-user-circle"></i> Mi Perfil</h1>
+                        <p>Gestiona tu información personal</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <div class="content-area">
+                <div class="profile-container">
+                    <!-- Tarjeta de perfil -->
+                    <div class="profile-card">
+                        <div class="profile-cover">
+                            <div class="cover-pattern"></div>
+                        </div>
+                        <div class="profile-avatar-section">
+                            <div class="avatar-container">
+                                <img src="../images/default-avatar.png" alt="Avatar del usuario" id="profile-avatar" class="profile-avatar">
+                                <label for="avatar-input" class="avatar-edit-btn">
+                                    <i class="fas fa-camera"></i>
+                                </label>
+                                <input type="file" id="avatar-input" accept="image/*" hidden>
+                            </div>
+                            <h2 class="profile-name" id="display-name">Usuario</h2>
+                            <p class="profile-email" id="display-email">usuario@correo.com</p>
+                            <div class="profile-badges">
+                                <span class="badge verified">
+                                    <i class="fas fa-check-circle"></i> Verificado
+                                </span>
+                                <span class="badge premium">
+                                    <i class="fas fa-crown"></i> Premium
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <span class="stat-value" id="profile-contacts">0</span>
+                                <span class="stat-name">Contactos</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="stat-value" id="profile-favorites">0</span>
+                                <span class="stat-name">Favoritos</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="stat-value" id="profile-tasks">0</span>
+                                <span class="stat-name">Tareas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de edición -->
+                    <div class="profile-edit-section">
+                        <div class="section-card">
+                            <div class="section-header">
+                                <h3><i class="fas fa-user-edit"></i> Información Personal</h3>
+                            </div>
+                            <form id="profile-form">
+                                <div class="form-row two-cols">
+                                    <div class="input-group">
+                                        <label for="profile-firstname">Nombre</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="profile-firstname" placeholder="Tu nombre">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-lastname">Apellido</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="profile-lastname" placeholder="Tu apellido">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row two-cols">
+                                    <div class="input-group">
+                                        <label for="profile-email-input">Correo electrónico</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-envelope"></i>
+                                            <input type="email" id="profile-email-input" placeholder="tu@correo.com">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-phone">Teléfono</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-phone"></i>
+                                            <input type="tel" id="profile-phone" placeholder="+502 1234-5678">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label for="profile-address">Dirección</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <input type="text" id="profile-address" placeholder="Tu dirección">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row two-cols">
+                                    <div class="input-group">
+                                        <label for="profile-birthdate">Fecha de nacimiento</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-calendar"></i>
+                                            <input type="date" id="profile-birthdate">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-occupation">Ocupación</label>
+                                        <div class="input-wrapper">
+                                            <i class="fas fa-briefcase"></i>
+                                            <input type="text" id="profile-occupation" placeholder="Tu ocupación">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label for="profile-bio">Biografía</label>
+                                        <div class="input-wrapper textarea-wrapper">
+                                            <i class="fas fa-quote-left"></i>
+                                            <textarea id="profile-bio" rows="3" placeholder="Cuéntanos sobre ti..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn-secondary" id="reset-profile">
+                                        <i class="fas fa-undo"></i>
+                                        Restaurar
+                                    </button>
+                                    <button type="submit" class="btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Guardar Cambios
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="section-card">
+                            <div class="section-header">
+                                <h3><i class="fas fa-cog"></i> Configuración de Cuenta</h3>
+                            </div>
+                            <div class="settings-list">
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <i class="fas fa-bell"></i>
+                                        <div>
+                                            <h4>Notificaciones</h4>
+                                            <p>Recibir alertas y recordatorios</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="setting-notifications" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <i class="fas fa-moon"></i>
+                                        <div>
+                                            <h4>Modo Oscuro</h4>
+                                            <p>Cambiar apariencia de la aplicación</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="setting-darkmode">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <i class="fas fa-lock"></i>
+                                        <div>
+                                            <h4>Privacidad</h4>
+                                            <p>Perfil visible solo para contactos</p>
+                                        </div>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="setting-privacy" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notificación de éxito -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toast-message">Cambios guardados correctamente</span>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/perfil.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaRH - Lista de Tareas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/tareas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-address-book"></i>
+                    <span>AgendaRH</span>
+                </div>
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="contactos.html">
+                            <i class="fas fa-users"></i>
+                            <span>Contactos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="favoritos.html">
+                            <i class="fas fa-star"></i>
+                            <span>Favoritos</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="tareas.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>Lista de Tareas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="perfil.html">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Mi Perfil</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Overlay para móvil -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">
+                        <h1><i class="fas fa-tasks"></i> Lista de Tareas</h1>
+                        <p>Organiza tus pendientes</p>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="add-btn" id="add-task-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>Nueva Tarea</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <div class="content-area">
+                <div class="tasks-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-list-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="total-tasks">0</span>
+                            <span class="stat-label">Total Tareas</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="pending-tasks">0</span>
+                            <span class="stat-label">Pendientes</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon completed">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="completed-tasks">0</span>
+                            <span class="stat-label">Completadas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tasks-filter">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-list"></i> Todas
+                    </button>
+                    <button class="filter-btn" data-filter="pending">
+                        <i class="fas fa-clock"></i> Pendientes
+                    </button>
+                    <button class="filter-btn" data-filter="completed">
+                        <i class="fas fa-check"></i> Completadas
+                    </button>
+                </div>
+
+                <div class="tasks-section">
+                    <div class="priority-legend">
+                        <span class="legend-item">
+                            <span class="priority-dot high"></span> Alta
+                        </span>
+                        <span class="legend-item">
+                            <span class="priority-dot medium"></span> Media
+                        </span>
+                        <span class="legend-item">
+                            <span class="priority-dot low"></span> Baja
+                        </span>
+                    </div>
+
+                    <div class="tasks-list" id="tasks-container">
+                        <!-- Las tareas se cargarán aquí con JavaScript -->
+                    </div>
+
+                    <div class="empty-state hidden" id="empty-tasks">
+                        <div class="empty-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3>No hay tareas</h3>
+                        <p>Agrega una nueva tarea para comenzar</p>
+                        <button class="btn-primary" id="add-task-empty">
+                            <i class="fas fa-plus"></i>
+                            Nueva Tarea
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para agregar/editar tarea -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="task-modal-title">Nueva Tarea</h2>
+                <button class="close-modal" id="close-task-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="task-title">Título de la tarea *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-heading"></i>
+                            <input type="text" id="task-title" required placeholder="¿Qué necesitas hacer?">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="task-description">Descripción</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class="fas fa-align-left"></i>
+                            <textarea id="task-description" rows="3" placeholder="Detalles adicionales..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row two-cols">
+                    <div class="input-group">
+                        <label for="task-priority">Prioridad *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-flag"></i>
+                            <select id="task-priority" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="high">Alta</option>
+                                <option value="medium">Media</option>
+                                <option value="low">Baja</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="task-date">Fecha límite</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="task-date">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancel-task">Cancelar</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i>
+                        Guardar Tarea
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación de eliminación -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2>Confirmar Eliminación</h2>
+                <button class="close-modal" id="close-delete-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="delete-icon">
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+                <p>¿Estás seguro de que deseas eliminar esta tarea?</p>
+                <p class="warning-text">Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="cancel-delete">Cancelar</button>
+                <button type="button" class="btn-danger" id="confirm-delete">
+                    <i class="fas fa-trash"></i>
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/tareas.js"></script>
+</body>
+</html>

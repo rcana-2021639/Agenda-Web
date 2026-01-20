@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaRH - Favoritos</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-address-book"></i>
+                    <span>AgendaRH</span>
+                </div>
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="contactos.html">
+                            <i class="fas fa-users"></i>
+                            <span>Contactos</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="favoritos.html">
+                            <i class="fas fa-star"></i>
+                            <span>Favoritos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tareas.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>Lista de Tareas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="perfil.html">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Mi Perfil</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Overlay para móvil -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">
+                        <h1><i class="fas fa-star" style="color: #ffc107;"></i> Mis Favoritos</h1>
+                        <p>Tus contactos más importantes</p>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-favorites" placeholder="Buscar en favoritos...">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <div class="content-area">
+                <div class="favorites-banner">
+                    <div class="banner-content">
+                        <div class="banner-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="banner-text">
+                            <h2>Contactos Favoritos</h2>
+                            <p>Acceso rápido a las personas más importantes para ti</p>
+                        </div>
+                    </div>
+                    <div class="banner-decoration">
+                        <div class="deco-circle"></div>
+                        <div class="deco-circle"></div>
+                    </div>
+                </div>
+
+                <div class="contacts-section">
+                    <div class="section-header">
+                        <h2><span id="favorites-count">0</span> Contactos Favoritos</h2>
+                        <div class="view-options">
+                            <button class="view-btn active" id="grid-view">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-btn" id="list-view">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="contacts-grid" id="favorites-container">
+                        <!-- Los favoritos se cargarán aquí con JavaScript -->
+                    </div>
+
+                    <div class="empty-state hidden" id="empty-favorites">
+                        <div class="empty-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>No tienes favoritos aún</h3>
+                        <p>Agrega contactos a favoritos para verlos aquí</p>
+                        <a href="contactos.html" class="btn-primary">
+                            <i class="fas fa-users"></i>
+                            Ver Contactos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de detalles del contacto -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-content detail-modal-content">
+            <div class="modal-header">
+                <h2>Detalles del Contacto</h2>
+                <button class="close-modal" id="close-detail-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="contact-detail-body" id="contact-detail-body">
+                <!-- Los detalles se cargarán aquí con JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/favoritos.js"></script>
+</body>
+</html>
